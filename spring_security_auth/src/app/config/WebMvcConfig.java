@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.app")
+@ComponentScan("app")
 public class WebMvcConfig implements WebMvcConfigurer, ApplicationContextAware  {
 
 	@Autowired

@@ -26,7 +26,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.app")
+@ComponentScan("app")
 @EnableTransactionManagement
 public class AppConfig implements WebMvcConfigurer{
 	
@@ -58,10 +58,10 @@ public class AppConfig implements WebMvcConfigurer{
 
         sessionFactory.setDataSource(getApplicationDataSource());
 
-        sessionFactory.setPackagesToScan("com.app.model");
+        sessionFactory.setPackagesToScan("app.model");
 
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.dialect", "com.app.config.CustomPostgreSQLDialect");
+        hibernateProperties.setProperty("hibernate.dialect", "app.config.CustomPostgreSQLDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
         hibernateProperties.setProperty("hibernate.format_sql", "false");
         hibernateProperties.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
