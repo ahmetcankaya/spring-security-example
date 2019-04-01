@@ -25,18 +25,12 @@ public class LoginController {
 //	}
 //
 //	
-	  @RequestMapping(value = "/login", method = RequestMethod.GET) public String
-	  loginPage(
-			  @RequestParam(value = "error", required = false) String error,
-			  @RequestParam(value = "logout", required = false) String logout, Model model)
-	  		{ String errorMessge = null;
-	  		if (error != null) 
-	  		{ errorMessge ="Kullanýcý Adý veya Parola Yanlýþ !!"; } 
-	  		if (logout != null) 
-	  		{ errorMessge = "Hesabýnýzdan baþarýlý bir þekilde çýkýþ yaptýnýz !!"; }
-	  		model.addAttribute("errorMessge", errorMessge); return "login"; }
-	 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage() {
+		return "login";
+	}
+
+	@RequestMapping(value = "/logout-success", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
@@ -50,17 +44,17 @@ public class LoginController {
 		return "redirect:/login?error=true";
 	}
 
-	@GetMapping(value = "/hello")
+	@GetMapping(value = "/private/main")
 	public ModelAndView Veteriner() throws Exception {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("hello");
+		model.setViewName("main");
 		return model;
 	}
-	
-	  // For Main Page Load...
-	  
+
+	// For Main Page Load...
+
 //	  @GetMapping(value = "/main") public ModelAndView anaSayfa() throws Exception
 //	  { ModelAndView model = new ModelAndView(); model.setViewName("main"); return
 //	  model; }
-	 
+
 }
