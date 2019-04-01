@@ -8,9 +8,10 @@
 <body>
 	<div>
 		<div>
+		<h3>Spring Security Anasayfa</h3>
 			<input type="submit"
-				onclick="window.location.href='${context}/logout-success'"
-				value="Giriş">
+				onclick="window.location.href='${context}/SpringSecurity/logout-success'"
+				value="Çıkış">
 		</div>
 	</div>
 </body>
